@@ -24,7 +24,7 @@ async def end_game(message: types.Message):
 @router.message(Command('start'))
 async def start(message: types.Message, state: FSMContext):
     await message.answer(f'Давай сыграем в игру, {message.from_user.first_name}! '
-                         f'Я загадаю число от 1 до 10, а ты попытаешься угадать.\n'
+                         f'Я загадаю число от 1 до 5, а ты попытаешься угадать.\n'
                          f'Напиши "go", чтобы сыграть или любое сообщение, чтобы отказаться.')
     await state.set_state(FSMGame.in_choice)
 
@@ -59,4 +59,3 @@ async def game(message: types.Message, state: FSMContext):
         await state.set_state(FSMGame.in_choice)
 
     user['total_games'] += 1
-
