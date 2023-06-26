@@ -6,7 +6,7 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import sessionmaker
 
-from db.user_model import User
+from db.models.user_model import User
 
 
 class RegisterCheck(BaseMiddleware):
@@ -32,8 +32,8 @@ class RegisterCheck(BaseMiddleware):
                     )
                     await session.merge(user)
                     if isinstance(event, Message):
-                        await event.answer('Вы зарегистрировались.')
+                        await event.answer('Добро пожаловать!')
                     else:
-                        await event.message.answer('Вы зарегистрировались.')
+                        await event.message.answer('Добро пожаловать!')
 
         return await handler(event, data)
