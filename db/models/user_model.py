@@ -9,3 +9,4 @@ class User(Base):
     user_id = Column(Integer, primary_key=True, unique=True, nullable=False)
     total_games = Column(Integer, default=0)
     wins = Column(Integer, default=0)
+    attempts = Column(Integer, default=3)
